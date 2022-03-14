@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_nav_graph"
+    app:startDestination="@id/servicesFragment">
+
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.se3.ase.ui.services.ServicesFragment"
+        android:label="fragment_services"
+        tools:layout="@layout/fragment_services" >
+        <action
+            android:id="@+id/action_servicesFragment_to_serviceDetailFragment"
+            app:destination="@id/serviceDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceDetailFragment"
+        android:name="com.se3.ase.ui.serviceDetail.ServiceDetailFragment"
+        android:label="fragment_service_detail"
+        tools:layout="@layout/fragment_service_detail" >
+        <action
+            android:id="@+id/action_serviceDetailFragment_to_appointmentCreationFragment"
+            app:destination="@id/appointmentCreationFragment" />
+        <argument
+            android:name="serviceId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentCreationFragment"
+        android:name="com.se3.ase.ui.appointmentcreation.AppointmentCreationFragment"
+        android:label="fragment_appointment_creation"
+        tools:layout="@layout/fragment_appointment_creation" >
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+    </fragment>
+</navigation>

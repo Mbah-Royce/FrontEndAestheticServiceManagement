@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">ASE</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_services">Services</string>
+    <string name="title_appointments">Appointments</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_aboutus">About Us</string>
+    <string name="title_popular">Popular</string>
+    <string name="title_app">Wellness</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="invalid_passMatch">Passwords do not match</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="invalid_pasConfirm">Invalid Password confirmation</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_phoneNumber">Invalid phonenumber</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_LastName">Invalid Last Name </string>
+    <string name="invalid_firstName">Invalid First Name </string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="registration_failed">"Registration failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tab_test">TabTestActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!--    server response error-->
+    <string name="RESPONSE_NETWORK_ERROR">"Network Error"</string>
+    <string name="RESPONSE_INTERNAL_SERVER_ERROR">"Remote Server Error"</string>
+    <string name="UNEXPECTED_ERROR">"An error occured"</string>
+    <string name="REQUEST_BODY_ERROR">"Error sending request"</string>
+    <string name="RESPONSE_UNAUTHENTICATED">"Unauthentiicated"</string>
+    <string name="RESPONSE_BODY_ERROR">"Error in response body"</string>
+    <string name="RESPONSE_RESOURCE_NOT_FOUND">"Resource Not Found"</string>
+    <string name="RESPONSE_FORBIDEN">"Resource Not Found"</string>
+    <string name="WRONG_CREDENTIALS">"Password or email incorrect"</string>
+
+    <string name="title_activity_visitor_dashboard">VisitorDashboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>

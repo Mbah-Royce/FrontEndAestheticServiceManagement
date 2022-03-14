@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/datalabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Date:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/datalabel"
+            android:gravity="center_vertical"
+            android:text="2020-10-10 00:00:00"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/servicelabel"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Service:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/servicelabel"
+            android:gravity="center_vertical"
+            android:text="Service 1"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/categorylabel"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Category:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/categorylabel"
+            android:gravity="center_vertical"
+            android:text="2020-10-10 00:00:00"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/sessionlabel"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Session:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appSession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/sessionlabel"
+            android:gravity="center_vertical"
+            android:text="Session 1"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/statuslabel"
+            android:layout_width="120dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Status:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/statuslabel"
+            android:background="@drawable/canceled_bg"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Canceled"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/creationlabel"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Created On:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appCreatedOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/creationlabel"
+            android:gravity="center_vertical"
+            android:text="2020-10-10 00:00:00"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/updatelabel"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Updated On:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appUpdatedOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/updatelabel"
+            android:gravity="center_vertical"
+            android:text="2020-10-10 00:00:00"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
