@@ -36,6 +36,9 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentViewHold
         holder.service.setText(app.getServieName());
         holder.category.setText(app.getCategoryName());
         holder.session.setText(app.getSessionName());
+        if(app.getAppointmentStatus().equals("pending")){
+            holder.status.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.pending_bg));
+        }
         holder.status.setText(app.getAppointmentStatus());
         holder.createdOn.setText(app.getAppointmentCreatedAt());
         holder.updatedOn.setText(app.getAppointmentUpdataAt());

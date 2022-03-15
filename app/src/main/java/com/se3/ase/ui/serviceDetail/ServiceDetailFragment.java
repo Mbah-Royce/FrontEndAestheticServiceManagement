@@ -87,7 +87,7 @@ public class ServiceDetailFragment extends Fragment {
     }
 
     public void updateUiWithServices(ServiceDetaileView data){
-//        binding.title.setText(data.getName());
+        binding.title.setText(data.getName());
         binding.desc.setText(data.getDesciption());
         Picasso.get().load(data.getImage()).into(image);
         categoryAdapter.setResult(data.getCategories(),getContext());

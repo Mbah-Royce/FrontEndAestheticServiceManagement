@@ -57,19 +57,42 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
         appoinmentData = new JSONObject();
         client = new OkHttpClient.Builder().addInterceptor(new OkhttpInterceptor(getApplicationContext())).build();
 
-        sessionSpinner.setOnItemSelectedListener(this);
-        paymentMethodSpinner.setOnItemSelectedListener(this);
 
         sessions = new ArrayList<>();
         getCategorySessions(catId);
 
-        ArrayAdapter sessionAd = new ArrayAdapter(this, android.R.layout.simple_spinner_item,sessions);
+        ArrayAdapter<SessionModel> sessionAd = new ArrayAdapter<SessionModel>(this, android.R.layout.simple_spinner_item,sessions);
         sessionAd.setDropDownViewResource(android.R.layout.simple_spinner_item);
         sessionSpinner.setAdapter(sessionAd);
+        sessionSpinner.setOnItemSelectedListener(this);
 
+
+
+        sessionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                SessionModel sessionModel = (SessionModel) parent.getSelectedItem();
+                displaySessionId(sessionModel);
+
+//                                try {
+//                    SessionModel sessionModel = (SessionModel) parent.getSelectedItem();
+//                    System.out.println("this is the id"+sessionModel.getSesssionId());
+//                    appoinmentData.put("sessionid",sessionModel.getSesssionId());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         ArrayAdapter paymentMethodAd = new ArrayAdapter(this, android.R.layout.simple_spinner_item,paymentMethods);
         paymentMethodAd.setDropDownViewResource(android.R.layout.simple_spinner_item);
         paymentMethodSpinner.setAdapter(paymentMethodAd);
+        paymentMethodSpinner.setOnItemSelectedListener(this);
+
 
         initDatePicker();
         dateBtn = (Button) findViewById(R.id.datePickerBtn);
@@ -122,7 +145,6 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
                         if(response.code() == 200){
                             try {
                                 JSONArray data = new JSONArray(body);
-                                sessions = new ArrayList<>();
                                 for(int i = 0; i < data.length(); i++){
                                     JSONObject object = data.getJSONObject(i);
                                     sessions.add(new SessionModel(
@@ -167,7 +189,7 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
     }
 
     private  String makeDateString(int day, int month, int year){
-        return getMonthFormat(month) + " " + day + " " + year;
+        return getMonthFormat(month) + "-" + day + "-" + year;
     }
 
     private String getMonthFormat(int month) {
@@ -197,8 +219,10 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
         progressDialog.setMessage("Loading data.....");
         progressDialog.show();
         try{
-            appoinmentData.put("appointmentdate",dateBtn.getText());
+            appoinmentData.put("appointmentdate","2029-11-12");
             appoinmentData.put("appointmentstatus","Pending");
+            appoinmentData.put("sessionid","2");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -254,28 +278,35 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
         });
     }
 
+    public void getSelectSession (View v){
+        SessionModel sessionModel = (SessionModel) sessionSpinner.getSelectedItem();
+    }
+    public void displaySessionId(SessionModel sessionModel){
+        String id = sessionModel.getSesssionId();
+        Toast.makeText(this,"sessionid id noew "+id,Toast.LENGTH_LONG).show();
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        parent.getItemAtPosition(position);
-        switch (parent.getId()){
-            case R.id.paymentMethodSpinner:
-                try {
-                    appoinmentData.put("paymentMethods",paymentMethods[position]);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if (parent.getId() == R.id.paymentMethodSpinner){
+                    try {
+                        appoinmentData.put("paymentMethods", paymentMethods[position]);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                Toast.makeText(this, "clicked on payment spinner" + paymentMethods[position], Toast.LENGTH_LONG).show();
+        }else if (parent.getId() == R.id.sessionSpinner){
+//                try {
+//                    SessionModel sessionModel = (SessionModel) parent.getSelectedItem();
+//                    appoinmentData.put("sessionid",sessionModel.getSesssionId());
+//                    Toast.makeText(this, "clicked on session spinner"+sessionModel.getSesssionId(),Toast.LENGTH_LONG).show();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+                Toast.makeText(this, "clicked on payment spinner",Toast.LENGTH_LONG).show();
+        }else{
+                    Toast.makeText(this, "clicked can enter therer",Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(this, "clicked on payment spinner" + paymentMethods[position],Toast.LENGTH_LONG).show();
-                break;
-            case R.id.sessionSpinner:
-                try {
-                    SessionModel sessionModel = (SessionModel) parent.getSelectedItem();
-                    appoinmentData.put("sessionid",sessionModel.getSesssionId());
-                    Toast.makeText(this, "clicked on session spinner"+sessionModel.getSesssionId(),Toast.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                break;
-        }
 
     }
 
@@ -283,4 +314,5 @@ public class AppointmentCreationActivity extends AppCompatActivity implements Ad
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }

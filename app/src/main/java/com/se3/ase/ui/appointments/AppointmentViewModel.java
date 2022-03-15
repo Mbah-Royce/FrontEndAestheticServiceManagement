@@ -22,6 +22,6 @@ public class AppointmentViewModel extends ViewModel {
     }
 
     public  void getAppointments(){
-        appointmentsRepository.getResultResponse();
+        appointmentsRepository.getAppointments();
     }
 }

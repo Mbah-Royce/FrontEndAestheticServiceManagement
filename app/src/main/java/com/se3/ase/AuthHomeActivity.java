@@ -7,8 +7,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.se3.ase.databinding.ActivityAuthHomeBinding;
@@ -19,6 +23,7 @@ import com.se3.ase.ui.servicesAuth.ServiceAuthFragment;
 
 public class AuthHomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     private ActivityAuthHomeBinding binding;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +36,22 @@ public class AuthHomeActivity extends AppCompatActivity implements BottomNavigat
         navView.setOnNavigationItemSelectedListener(this);
         navView.setSelectedItemId(R.id.navigation_services);
 
-
-
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_services, R.id.navigation_appointments, R.id.navigation_notifications)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_auth_home);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(binding.navView, navController);
+        TextView logout = binding.accountRedirect;
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                myEdit.putString("token", null);
+                myEdit.putString("userid", null);
+                myEdit.putString("name", null);
+                myEdit.putString("email", null);
+                myEdit.commit();
+                Intent intent = new Intent(AuthHomeActivity.this,AuthActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     ServiceAuthFragment firstFragment = new ServiceAuthFragment();
     AppointmentsFragment secondFragment = new AppointmentsFragment();

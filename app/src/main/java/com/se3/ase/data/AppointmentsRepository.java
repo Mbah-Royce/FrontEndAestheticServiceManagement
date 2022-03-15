@@ -40,7 +40,7 @@ public class AppointmentsRepository {
 
     public void getAppointments(){
         Request request = new Request.Builder()
-                .url(EnvVariables.API_BASE_URL + "/appointmentcontroller/user/appointment")
+                .url(EnvVariables.API_BASE_URL + "/auth/appointmentcontroller/user/appointment")
                 .get()
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -72,6 +72,7 @@ public class AppointmentsRepository {
                                         object.getString("servicename")
                                 );
                                 appointmentModelList.add(appointment);
+                                appointmentResult.postValue(new AppointmentResult(appointmentModelList));
                             }
                     }
                 } catch (JSONException e) {

@@ -41,8 +41,8 @@ public class ServicesRepository {
     }
 
     public void getServices() {
-        Request request = new Request.Builder().
-                 url("http://192.168.0.101:11706/BackedTest/webresources/visitorcontroller/service")
+        Request request = new Request.Builder()
+                .url(EnvVariables.API_BASE_URL+"/visitorcontroller/service")
                 .get()
                 .build();
         client.newCall(request).enqueue(new Callback() {
